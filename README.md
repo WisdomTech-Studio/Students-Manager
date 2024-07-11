@@ -10,12 +10,12 @@
 * **而gui.py则会显示独立窗口与用户交互。**  
 
 因此我们建议运行**gui.py**，体验更佳  
-### <u>**！！！注意！！！由于main.py中使用了“f字符串”，故仅适用于Python3.6及以上的Python版本运行！**</u>  
+### **<u>！！！注意！！！由于main.py中使用了“f字符串”，故仅适用于Python3.6及以上的Python版本运行！</u>**
 ***
 ### 代码简述  
 ***
 #### main.py  
-**主要开发者：** Billts-noo  
+**主要开发者：** [Billts-noo](https://github.com/Billts-noo)  
 **运行原理（单独运行main.py时）：**  
 1. 使用`print()`函数输出指定菜单，并标注各功能所对应的数字，用户通过在终端输入数字使用对应功能；  
 
@@ -30,11 +30,29 @@ def add_student(name, gender):
 ```
 3. 在删除、查找以及后续会上线的更改功能中，我们都在对学生信息操作前遍历一次列表**stu_names_list**比对被操作的学生是否存在，再根据结果执行对应操作；  
 
-4. 我们还使用pickle模块实现了**数据存储**的功能，**students info.json**和**students names.json**分别存储两个列表**stu_info_list**和**stu_names_list**，第一次保存时会自动创建。<u>**用户需要执行在主菜单的操作“保存并退出”才能正常保存数据！**</u>  
+4. 我们还使用pickle模块实现了**数据存储**的功能，**students info.json**和**students names.json**分别存储两个列表**stu_info_list**和**stu_names_list**，第一次保存时会自动创建。**<u>用户需要执行在主菜单的操作“保存并退出”才能正常保存数据！</u>**
 5. **functions.py**将管理系统要用到的函数独立出来，为了函数能正常调用上述的两个列表，我们使用自定义函数`share_lists()`实现两个文件之间的列表传输。*（想法来自于工作室成员xnz233）*  
 ***  
 #### gui.py
-**主要开发者：** xnz233  
+**主要开发者：** [xnz233](https://github.com/xnz233/)  
 **运行原理（单独运行gui.py时）：**  
-1.   
-***
+1. 使用`tkinter`库进行窗口的绘制，并与主程序共用一部分函数；自定义了窗口的类，将图形界面部分的定义单独抽离出来，使得代码逻辑更加清晰，下面是部分代码：
+```python
+class StudentManagementGUI:
+def __init__(self, root):
+global screen_height, screen_width, root_width, root_height
+self.root = root
+self.root.title("学生管理系统")
+screen_width = root.winfo_screenwidth() # 获取屏幕宽度
+screen_height = root.winfo_screenheight() # 获取屏幕高度
+root_width = 600
+root_height = 500
+
+self.root.geometry(
+
+f"{root_width}x{root_height}+{int((screen_width-root_width)/2)}+{int((screen_height-root_height)/2)}" # 计算窗口位置，使其绘制在屏幕中央
+)
+# more...
+```
+
+2. 使用`ttkbootstrap`库进行窗口美化，使图形化窗口更美观。
