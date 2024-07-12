@@ -1,4 +1,5 @@
 # Student Manager
+[![releases](https://badgen.net/github/release/WisdomTech-Studio/Student-Manager)](https://github.com/WisdomTech-Studio/Student-Manager/releases)
 ## 介绍
 ### 前言  
 这是一个极其简单且简陋的Python项目，是工作室成员用来练习Python的。  
