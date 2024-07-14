@@ -1,4 +1,4 @@
-# Student Manager
+# Students Manager
 ### <font color=FFA500>最新版本：</font>[![releases](https://badgen.net/github/release/WisdomTech-Studio/Student-Manager)](https://github.com/WisdomTech-Studio/Student-Manager/releases)
 
 ## <font color=1E90FF>前言</font>  
