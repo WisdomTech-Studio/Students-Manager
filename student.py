@@ -12,3 +12,4 @@ class Student:
     def change_info(self,new_name,new_gender):
         self.name = new_name
         self.gender = new_gender
+        print('修改成功！')

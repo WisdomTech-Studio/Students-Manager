@@ -33,3 +33,13 @@ def delete_student(info, name):
     """根据名字删除列表中的学生"""
     stu_info_list.remove(info)
     stu_names_list.remove(name)
+
+
+def translate_gender(number):
+    """将用户输入的数字转换为对应性别"""
+    if number == '0':
+        gender = '男'
+        return gender
+    elif number == '1':
+        gender = '女'
+        return gender
