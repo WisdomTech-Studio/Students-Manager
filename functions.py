@@ -6,10 +6,7 @@ from student import Student
 stu_names_list, stu_info_list = [], []
 
 
-def share_lists(
-    names_list,
-    info_list,
-):
+def share_lists(names_list, info_list):
     """接受主程序传递的列表"""
     global stu_names_list, stu_info_list
     stu_names_list = names_list

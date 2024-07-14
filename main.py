@@ -9,31 +9,23 @@ import pickle
 stu_names_list, stu_info_list = [], []
 active = True
 input_message = "输入数字以执行对应操作："
-stu_info_data = "students info.json"
-stu_names_data = "students names.json"
+stu_info_filename = "students info.json"
+stu_names_filename = "students names.json"
 
 
 def _load_data():
-    global stu_info_list, stu_names_list
-    if os.path.exists(stu_info_data):  # 判断数据文件是否存在
-        with open(stu_info_data, "rb") as info_data:
-            stu_info_list = pickle.load(info_data)  # 如果存在则导入数据
-        print("已找到文件students info.json!")
-    else:
-        print(
-            """找不到文件students info.json！
-    不过这不影响系统的正常运行，系统退出后会自动生成"""
-        )
-
-    if os.path.exists(stu_names_data):
-        with open(stu_names_data, "rb") as name_data:
-            stu_names_list = pickle.load(name_data)
-        print("已找到文件students names.json!")
-    else:
-        print(
-            """找不到文件students names.json！
-    不过这不影响系统的正常运行，系统退出后会自动生成"""
-        )
+    global stu_names_list,stu_info_list
+    lst = [stu_names_list,stu_info_list]
+    for i,filename in enumerate([stu_names_filename, stu_info_filename]):
+        if os.path.exists(filename):  # 判断数据文件是否存在
+            with open(filename, "rb") as f:
+                lst[i].extend(pickle.load(f))
+            print(f"已找到文件{filename}!")
+        else:
+            print(
+                f"""找不到文件{filename}！
+        不过这不影响系统的正常运行，系统退出后会自动生成"""
+            )
 
 
 def _show_list():
@@ -57,9 +49,9 @@ def _add_student():
                 fc.add_student(new_stu_name, "女")
                 break
             else:
-                print("别瞎jb乱搞")
+                print("别瞎搞awa")
     else:
-        print("别瞎jb乱搞")
+        print("别瞎搞awa")
 
 
 def _del_student():
@@ -70,7 +62,7 @@ def _del_student():
             fc.delete_student(del_stu_info, del_stu_name)
             print(f"学生{del_stu_name}已被删除！")
             break
-        elif not del_stu_name:
+        elif not del_stu_name: # 未输入要删除的学生的姓名则退出
             print("已退出！")
             break
         else:
@@ -84,13 +76,11 @@ def _find_student():
         if find_stu_info:
             print("\n查询结果如下:")
             print(find_stu_info)
-            way1 = input(f'''
-0 修改信息  1 退出
-{input_message}
-''')
+            way1 = input(f'\n0 修改信息  1 退出\n{input_message}')
             if way1 == '0':
-                changed_name,changed_gender = input('请依次输入修改后的姓名、性别：\n').split()
-                find_stu_info.change_info(changed_name,changed_gender)
+                changed_name, changed_gender = input(
+                    '请依次输入修改后的姓名、性别：\n').split()
+                find_stu_info.change_info(changed_name, changed_gender)
                 print('修改成功！')
             if way1 == '1':
                 None
@@ -104,9 +94,10 @@ def _find_student():
 
 
 def _save_data():
-    pickle.dump(stu_info_list, file=open(stu_info_data, "wb"))
-    pickle.dump(stu_names_list, open(stu_names_data, "wb"))
+    pickle.dump(stu_info_list, file=open(stu_info_filename, "wb"))
+    pickle.dump(stu_names_list, open(stu_names_filename, "wb"))
     print("数据保存成功！")
+
 
 if __name__ == "__main__":
     _load_data()

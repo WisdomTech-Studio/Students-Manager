@@ -3,3 +3,5 @@
 *.pyd
 __pycache__/
 *.egg-info/
+students info.json
+students names.json
