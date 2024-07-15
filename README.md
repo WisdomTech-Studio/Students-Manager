@@ -4,7 +4,8 @@
 ## <font color=1E90FF>前言</font>  
 这是一个极其简单且简陋的Python项目，是工作室成员用来练习Python的。  
 **<font color=8B0000>因此不要将此程序用于管理学生！</font>**<font color=A9A9A9>（~~也没人看的上~~）</font>  
-开发者们都是**新手**，如果有任何方面的意见或建议请向我们提出！  
+开发者们都是**新手**，如果有任何方面的意见或建议请向我们提出！ 
+出于学习目的，部分功能使用了较复杂或者特别的方式实现，当然如果有简化的建议也可以与我们分享！
 ## <font color=1E90FF>需要的第三方库</font>    
 **gui.py**需要第三方库<u>[ttkbootstrap](https://ttkbootstrap.readthedocs.io/en/latest/zh/gettingstarted/installation/)</u>。  
 
